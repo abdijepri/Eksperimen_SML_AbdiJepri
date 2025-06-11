@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 
-def preprocess_brain_stroke_dataset(input_filename: str = "Brain_stroke_prediction_dataset_Raw.csv", output_path: str = 'Brain_stroke_prediction_dataset_Final.csv') -> pd.DataFrame:
+def preprocess_brain_stroke_dataset(input_filename: str = "../Brain_stroke_prediction_dataset_Raw.csv", output_path: str = "final_dataset.csv") -> pd.DataFrame:
     # 1. Load data
     df = pd.read_csv(input_filename)
 
@@ -34,4 +34,3 @@ def preprocess_brain_stroke_dataset(input_filename: str = "Brain_stroke_predicti
 # Contoh eksekusi langsung jika dijalankan sebagai script
 if __name__ == '__main__':
     preprocess_brain_stroke_dataset()
-    print("Preprocessing selesai. Dataset disimpan ke 'Brain_stroke_prediction_dataset_Final.csv'.")

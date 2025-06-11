@@ -25,7 +25,7 @@ jobs:
 
     - name: Run preprocessing script
       working-directory: preprocessing
-      run: python automate.py
+      run: python automate_AbdiJepri.py
 
     - name: Commit preprocessed file
       run: |

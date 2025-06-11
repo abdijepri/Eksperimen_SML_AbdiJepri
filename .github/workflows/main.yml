@@ -27,10 +27,17 @@ jobs:
       working-directory: preprocessing
       run: python automate_AbdiJepri.py
 
-    - name: Commit preprocessed file
+    - name: Setup Git
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
+
+    - name: Update remote with token
+      run: |
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
+    - name: Commit and push changes
+      run: |
         git add preprocessing/final_dataset.csv
-        git commit -m 'Auto-update: preprocessing/final_dataset.csv from preprocessing' || echo "No changes to commit"
+        git commit -m "Auto-update: preprocessing/final_dataset.csv from preprocessing" || echo "No changes to commit"
         git push
